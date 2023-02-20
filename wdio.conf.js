@@ -60,7 +60,16 @@ exports.config = {
         ]
     ],
     framework: 'cucumber',
-    reporters: ['spec'],
+    reporters: [
+        'spec',
+        [
+            'allure', {
+                outputDir: 'allure-results',
+                disableWebdriverStepsReporting: true,
+                disableWebdriverScreenshotsReporting: false
+            }
+        ]
+    ],
 
 
     //
@@ -93,9 +102,26 @@ exports.config = {
         command: 'appium'
     },
 
-    // afterScenario: function (world, result, context) { // browser.closeApp()
-    //     driver.resetApp();
-    // }
+    beforeStep: function (step, scenario, context) {
+        driver.pause(1000);
+    },
+    beforeScenario: function (world, context) {
+        driver.launchApp();
+    },
+    afterScenario: function (world, result, context) { // browser.closeApp()
+        driver.closeApp();
+    },
+
+    afterStep: async function (step, scenario, {
+        error,
+        duration,
+        passed
+    }, context) {
+        if (error) {
+            await driver.takeScreenshot;
+        }
+    },
+    afterFeature: function (uri, feature) {}
 
 
 };

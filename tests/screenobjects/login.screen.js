@@ -1,7 +1,7 @@
+/* eslint-disable class-methods-use-this */
 const BaseScreen = require('./base.screen');
 
 class LoginScreen extends BaseScreen {
-
     async sendkeysEmailField(email) {
         const emailField = await $('//android.widget.EditText[@content-desc="login-form-input-email"]');
         await emailField.waitForDisplayed();
@@ -26,8 +26,8 @@ class LoginScreen extends BaseScreen {
     }
 
     async signBtnIsEnabled() {
-        let signInBtn = await $('~generic-button-wrapper');
-        let isEnabled = await signInBtn.isEnabled();
+        const signInBtn = await $('~generic-button-wrapper');
+        const isEnabled = await signInBtn.isEnabled();
         console.log("Sign in button is enabled " + isEnabled)
         return isEnabled;
     }

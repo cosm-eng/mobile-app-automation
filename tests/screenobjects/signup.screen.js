@@ -47,6 +47,7 @@ class SignUpScreen extends BaseScreen {
         const errMsg = await $('~login-error-message')
         let errdisplayed = await errMsg.isDisplayed();
         console.log("Error message is displayed " + errdisplayed)
+        // getText :to do
         return errdisplayed;
     }
 
