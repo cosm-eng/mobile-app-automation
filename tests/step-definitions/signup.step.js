@@ -16,12 +16,17 @@ import signupScreen from '../screenobjects/signup.screen';
 Given(/^signup - I am on the welcome screen$/, async () => {
     console.log("waiiiiiiitttttttttttttttttttttt")
     await browser.pause(10000);
-    console.log("waiiiiiiitttttttttttttttttttttt")
-    await homeScreen.clickExploreButton();
-    console.log("waiiiiiiitttttttttttttttttttttt")
-    await browser.pause(5000);
-    await tabNav.clickProfileIcon();
-    await browser.pause(5000);
+    console.log("waiiiiiiittttttttttttttttt2222")
+
+    await driver.closeApp();
+    await browser.pause(10000);
+
+    await driver.launchApp();
+    // await homeScreen.clickExploreButton();
+    console.log("waiiiiiiitttttttttttttttttttttt3333333333333")
+    // await browser.pause(5000);
+    // await tabNav.clickProfileIcon();
+    // await browser.pause(5000);
 
 });
 
@@ -64,4 +69,6 @@ When(/^signup - validate the password validation message conatainer is present$/
     await browser.pause(7000);
     let val = await signupScreen.verifySignUpMshContainerIsDisplayed();
     expectChai(val).to.equal(true);
+    await driver.closeApp();
+    await driver.launchApp();
 });
