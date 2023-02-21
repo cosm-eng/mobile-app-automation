@@ -6,7 +6,13 @@ exports.config = {
 
     // specs: ['./tests/features/login.feature'],
     // specs: ['./tests/features/ticketsflow.feature'],
-    specs: ['./tests/features/signup.feature'],
+    specs: [
+        './tests/features/signup.feature', './tests/features/login.feature', './tests/features/ticketsflow.feature',
+    ],
+
+    // specs: [
+    //     'e2e/tests/features/Login.feature', 'e2e/tests/features/Logout.feature',
+    // ],
 
     exclude: [
         // 'path/to/excluded/files'
@@ -78,7 +84,9 @@ exports.config = {
         requireModule: [],
         // require: ['./tests/step-definitions/login.step.js'],
         // require: ['./tests/step-definitions/ticketsflow.step.js'],
-        require: ['./tests/step-definitions/signup.step.js'],
+        require: [
+            './tests/step-definitions/signup.step.js', './tests/step-definitions/login.step.js', './tests/step-definitions/ticketsflow.step.js',
+        ],
         backtrace: false,
         requireModule: [],
         // <boolean> invoke formatters without executing steps
@@ -112,16 +120,15 @@ exports.config = {
         driver.closeApp();
     },
 
-    afterStep: async function (step, scenario, {
-        error,
-        duration,
-        passed
-    }, context) {
-        if (error) {
-            await driver.takeScreenshot;
-        }
-    },
-    afterFeature: function (uri, feature) {}
+    // afterStep: async function (step, scenario, {
+    //     error,
+    //     duration,
+    //     passed
+    // }, context) {
+    //     if (error) {
+    //         await driver.takeScreenshot;
+    //     }
+    // }
 
 
 };

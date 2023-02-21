@@ -1,4 +1,3 @@
-/* eslint-disable class-methods-use-this */
 const BaseScreen = require('./base.screen');
 
 class LoginScreen extends BaseScreen {

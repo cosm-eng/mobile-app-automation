@@ -49,10 +49,4 @@ When(/^signup - validate the error message '(.*)'$/, async (errormesaage) => {
 When(/^signup - validate the password validation message conatainer is present$/, async () => {
     const val = await signupScreen.verifySignUpMshContainerIsDisplayed();
     expectChai(val).to.equal(true);
-    // await driver.closeApp();
-    // await driver.launchApp();
 });
-
-// AfterStep(async () => {
-//     await driver.closeApp();
-// });

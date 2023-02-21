@@ -1,19 +1,19 @@
 Feature: login test scenarios
 
   Scenario Outline: As a user, I can log into app with valid email and password
-    Given I am on the welcome screen
-    When user enters the '<email>' and '<password>'
-    And click on sign in button
-    Then user should be logged in and on user profile page is shown
+    Given login- I am on the welcome screen
+    When login- user enters the '<email>' and '<password>'
+    And login- click on sign in button
+    Then login- user should be logged in and on user profile page is shown
 
         Examples:
       | email               | password   |
       | qacosm024@gmail.com | Monika@123 |
 
   Scenario Outline: Sign in button is disabled with invalid email
-    Given I am on the welcome screen
-    When user enters the '<email>' and '<password>'
-    Then sign in should be disabled
+    Given login- I am on the welcome screen
+    When login- user enters the '<email>' and '<password>'
+    Then login- sign in should be disabled
 
         Examples:
       | email       | password | 
@@ -21,10 +21,10 @@ Feature: login test scenarios
 
 
   Scenario Outline: Error message should be shown with invalid email and password
-    Given I am on the welcome screen
-    When user enters the '<email>' and '<password>'
-    And click on sign in button
-    Then a login page email error message '<loginErrorMsg>' should be shown
+    Given login- I am on the welcome screen
+    When login- user enters the '<email>' and '<password>'
+    And login- click on sign in button
+    Then login- a login page email error message '<loginErrorMsg>' should be shown
 
         Examples:
       | email               | password  | loginErrorMsg |

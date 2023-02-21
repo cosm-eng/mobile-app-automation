@@ -1,7 +1,7 @@
 const screen = require('./base.screen');
 
 
-class PaymentCardBottomSheet extends screen {
+class PaymentCardBottomSheetScreen extends screen {
 
     async selectSecondCard() {
         const gettickt = await $('//android.view.ViewGroup[contains(@content-desc,"VISA 1111")]');
@@ -11,4 +11,4 @@ class PaymentCardBottomSheet extends screen {
 
 }
 
-module.exports = new PaymentCardBottomSheet();
+module.exports = new PaymentCardBottomSheetScreen();
