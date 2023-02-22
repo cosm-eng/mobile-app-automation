@@ -1,22 +1,41 @@
 const BaseScreen = require('./base.screen');
+const SELECTORS = {
 
+    EMAIL_FIELD: '//android.widget.EditText[@content-desc="login-form-input-email"]',
+    PASSWORD_FIELD: '//android.widget.EditText[@content-desc="login-form-input-password"]',
+    SIGNIN_BTN: '~generic-button-wrapper',
+    LOGIN_ERR_MSG: '~login-error-message'
+
+};
 class LoginScreen extends BaseScreen {
+    getEmailField() {
+        return $(SELECTORS.EMAIL_FIELD);
+    }
+
+    getPasswordField() {
+        return $(SELECTORS.PASSWORD_FIELD);
+    }
+    getSigninBtn() {
+        return $(SELECTORS.SIGNIN_BTN);
+    }
+
+    getLoginErrMessage() {
+        return $(SELECTORS.LOGIN_ERR_MSG);
+    }
+
     async sendkeysEmailField(email) {
-        const emailField = await $('//android.widget.EditText[@content-desc="login-form-input-email"]');
-        await emailField.waitForDisplayed();
-        await emailField.setValue(email);
+        await(await this.getEmailField()).waitForDisplayed();
+        await(await this.getEmailField()).setValue(email);
     }
 
     async sendkeysPasswordField(password) {
-        const pwdField = await $('//android.widget.EditText[@content-desc="login-form-input-password"]');
-        await pwdField.waitForDisplayed();
-        await pwdField.setValue(password);
+        await(await this.getPasswordField()).waitForDisplayed();
+        await(await this.getPasswordField()).setValue(password);
     }
 
     async clickSignInButton() {
-        const signInBtn = await $('~generic-button-wrapper');
-        await signInBtn.waitForDisplayed();
-        await signInBtn.click();
+        await(await this.getSigninBtn()).waitForDisplayed();
+        await(await this.getSigninBtn()).click();
     }
 
     async login(username, password) {
@@ -25,15 +44,13 @@ class LoginScreen extends BaseScreen {
     }
 
     async signBtnIsEnabled() {
-        const signInBtn = await $('~generic-button-wrapper');
-        const isEnabled = await signInBtn.isEnabled();
+        const isEnabled = await(await this.getSigninBtn()).isEnabled();
         console.log("Sign in button is enabled " + isEnabled)
         return isEnabled;
     }
 
     async loginErrMsg() {
-        let err = await $('~login-error-message');
-        let errText = await err.getText();
+        let errText = await(await this.getLoginErrMessage()).getText();
         console.log("Login Page invalid email passwprd error message is :: " + errText)
         return errText;
     }

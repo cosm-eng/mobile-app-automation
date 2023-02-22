@@ -1,15 +1,3 @@
-/* eslint-disable object-curly-spacing */
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable indent */
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
-// const {Given, When, Then} = require('@wdio/cucumber-framework');
-// import {assert} from 'chai';
-// const homeScreen = require('../screenobjects/home.screen');
-// const loginScreen = require('../screenobjects/login.screen');
-// const profileScreen = require('../screenobjects/Profile.screen');
-// const tabNav = require('../screenobjects/tabNav');
-
 import {expect as expectChai} from 'chai';
 import signupScreen from '../screenobjects/signup.screen';
 

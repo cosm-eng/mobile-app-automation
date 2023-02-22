@@ -1,18 +1,29 @@
 const screen = require('./base.screen');
+const SELECTORS = {
+
+    PAYMENT_METHOD_BUTTON: '//android.view.ViewGroup[@content-desc="payment-method-selector-button"]/android.widget.TextView',
+    COMPLETE_ORDER_BUTTON: '//android.view.ViewGroup[@content-desc="generic-button-wrapper"]/android.view.View'
+
+};
 
 
 class CheckoutScreen extends screen {
 
+    getPaymentMethodButton() {
+        return $(SELECTORS.PAYMENT_METHOD_BUTTON);
+    }
+
+    getCompleteOrderButton() {
+        return $(SELECTORS.COMPLETE_ORDER_BUTTON);
+    }
     async clickPaymentMethodButton() {
-        const paymentmthd = await $('//android.view.ViewGroup[@content-desc="payment-method-selector-button"]/android.widget.TextView');
-        await paymentmthd.waitForDisplayed();
-        await paymentmthd.click();
+        await(await this.getPaymentMethodButton()).waitForDisplayed();
+        await(await this.getPaymentMethodButton()).click();
     }
 
     async clickCompleteOrderButton() {
-        const complOrdr = await $('//android.view.ViewGroup[@content-desc="generic-button-wrapper"]/android.view.View');
-        await complOrdr.waitForDisplayed();
-        await complOrdr.click();
+        await(await this.getCompleteOrderButton()).waitForDisplayed();
+        await(await this.getCompleteOrderButton()).click();
     }
 
 
