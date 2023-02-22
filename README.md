@@ -1,14 +1,15 @@
 Appium is an open source, cross-platform test automation tool for native, hybrid and mobile web apps, tested on emulators (Android), and real devices (Android, macOS ).
 
 Installation Required
-1. Java
-2. Node.js installation
-3. NPM installation
-4. NVM - to maintain node versions
-5- Android studio(optional): To run on emulators
-6- Appium inspector(optional) : To locate elements 
-7. VSC editor
-8. webdriver setup and installation commands:
+1. Java(JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-18.0.2.1.jdk/Contents/Home
+2. Android SDK(ANDROID_HOME=/Users/monikayadav/Library/Android/sdk)
+3. Node.js 
+4. NPM 
+5. NVM - to maintain node versions
+6. Android studio(optional): To run on emulators
+7. Appium inspector(optional) : To locate elements 
+8. VSC editor
+9. webdriver setup and installation commands:
 -- npm init
 -- npm install webdriverio --save-dev
 -- npm install @wdio/cli
