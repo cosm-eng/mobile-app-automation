@@ -1,5 +1,6 @@
 Feature: login test scenarios
 
+
   Scenario Outline: As a user, I can log into app with valid email and password
     Given login- I am on the welcome screen
     When login- user enters the '<email>' and '<password>'
