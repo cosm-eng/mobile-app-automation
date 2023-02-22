@@ -91,12 +91,7 @@ class SignUpScreen extends BaseScreen {
         console.log("Sign up container is displayed " + errdisplayed)
         return errdisplayed;
     }
-    // async enterLastName(lastname) {
-    //     const lastnamefield = await $('~tab-bar-events-item');
-    //     await lastnamefield.waitForDisplayed();
-    //     await lastnamefield.click();
-    //     await lastnamefield.setValue(lastname)
-    // }
+
 
 }
 

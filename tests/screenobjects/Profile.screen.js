@@ -1,4 +1,3 @@
-// const profileImageIcon = '//android.widget.ScrollView[@content-desc="profile-screen-form-scrollview"]/android.view.ViewGroup/android.view.ViewGroup[2]';
 const SELECTORS = {
 
     PROFILE_IMAGE: '//android.widget.ScrollView[@content-desc="profile-screen-form-scrollview"]/android.view.ViewGroup/android.view.ViewGroup[2]'

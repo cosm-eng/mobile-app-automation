@@ -41,7 +41,7 @@ When(/^on select seat page , i select the number of ticket$/, async () => {
 
 When(/^on checkout page, I add a payment card$/, async () => {
     await checkoutScreen.clickPaymentMethodButton();
-    await PaymentCardBottomSheetScreen.selectSecondCard();
+    await PaymentCardBottomSheetScreen.selectVisaCard();
 });
 
 
