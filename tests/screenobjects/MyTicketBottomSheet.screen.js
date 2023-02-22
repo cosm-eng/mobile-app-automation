@@ -13,10 +13,7 @@ class MyTicketBottomSheet extends screen {
     }
 
     async myTicketBottomSheetIsDisplayed() {
-        const bottomSheet = await(await this.getMyTicketBottomSheet()).isDisplayed();
-        console.log("My Ticket Bottom Sheet is displayed " + bottomSheet)
         expect(await this.getMyTicketBottomSheet()).toBeDisabled();
-
     }
 
 }

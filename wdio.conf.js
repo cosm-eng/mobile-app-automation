@@ -1,11 +1,12 @@
+const allure = require('allure-commandline')
 exports.config = {
     runner: 'local',
 
     port: 4723,
     path: '/wd/hubsession',
 
-    // specs: ['./tests/features/login.feature'],
-    specs: ['./tests/features/ticketsflow.feature'],
+    specs: ['./tests/features/login.feature'],
+    // specs: ['./tests/features/ticketsflow.feature'],
     // specs: ['./tests/features/signup.feature'],
     // specs: [
     //     './tests/features/signup.feature', './tests/features/login.feature', './tests/features/ticketsflow.feature',
@@ -83,8 +84,8 @@ exports.config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         requireModule: [],
-        // require: ['./tests/step-definitions/login.step.js'],
-        require: ['./tests/step-definitions/ticketsflow.step.js'],
+        require: ['./tests/step-definitions/login.step.js'],
+        // require: ['./tests/step-definitions/ticketsflow.step.js'],
         // require: ['./tests/step-definitions/signup.step.js'],
 
         // require: [
@@ -122,7 +123,24 @@ exports.config = {
     afterScenario: function (world, result, context) { // browser.closeApp()
         driver.closeApp();
     },
+    onComplete: function () {
+        const reportError = new Error('Could not generate Allure report')
+        const generation = allure(['generate', 'allure-results', '--clean'])
+        return new Promise((resolve, reject) => {
+            const generationTimeout = setTimeout(() => reject(reportError), 5000)
 
+            generation.on('exit', function (exitCode) {
+                clearTimeout(generationTimeout)
+
+                if (exitCode !== 0) {
+                    return reject(reportError)
+                }
+
+                console.log('Allure report successfully generated')
+                resolve()
+            })
+        })
+    }
     // afterStep: async function (step, scenario, {
     //     error,
     //     duration,
