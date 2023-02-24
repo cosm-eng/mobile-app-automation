@@ -4,7 +4,10 @@ const SELECTORS = {
     EMAIL_FIELD: '//android.widget.EditText[@content-desc="login-form-input-email"]',
     PASSWORD_FIELD: '//android.widget.EditText[@content-desc="login-form-input-password"]',
     SIGNIN_BTN: '~generic-button-wrapper',
-    LOGIN_ERR_MSG: '~login-error-message'
+    LOGIN_ERR_MSG: '~login-error-message',
+    BACK_ARROW_HEADER_NAV: '~header-navigation-back-button',
+    SIGNIN_PROFILE: '//android.view.ViewGroup[@content-desc="generic-button-wrapper"]/android.view.View'
+
 
 };
 class LoginScreen extends BaseScreen {
@@ -22,6 +25,14 @@ class LoginScreen extends BaseScreen {
     getLoginErrMessage() {
         return $(SELECTORS.LOGIN_ERR_MSG);
     }
+
+    getBackArrowHeaderNavigation() {
+        return $(SELECTORS.BACK_ARROW_HEADER_NAV);
+    }
+    getSignInButtonAfterClickbackButton() {
+        return $(SELECTORS.SIGNIN_PROFILE);
+    }
+
 
     async sendkeysEmailField(email) {
         await(await this.getEmailField()).waitForDisplayed();
@@ -55,7 +66,15 @@ class LoginScreen extends BaseScreen {
         return errText;
     }
 
+    async clickBackArrowHeaderNav() {
+        await(await this.getBackArrowHeaderNavigation()).waitForDisplayed();
+        await(await this.getBackArrowHeaderNavigation()).click();
+    }
 
+    async clickSignInButtonAppearedAfterBackButtonClick() {
+        await(await this.getSignInButtonAfterClickbackButton()).waitForDisplayed();
+        await(await this.getSignInButtonAfterClickbackButton()).click();
+    }
 }
 
 module.exports = new LoginScreen();

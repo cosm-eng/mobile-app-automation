@@ -4,10 +4,12 @@ exports.config = {
 
     port: 4723,
     path: '/wd/hubsession',
-
-    specs: ['./tests/features/login.feature'],
+    // specs: [
+    //     './tests/features/login.feature', './tests/features/signup.feature'
+    // ],
+    // specs: ['./tests/features/login.feature'],
     // specs: ['./tests/features/ticketsflow.feature'],
-    // specs: ['./tests/features/signup.feature'],
+    specs: ['./tests/features/signup.feature'],
     // specs: [
     //     './tests/features/signup.feature', './tests/features/login.feature', './tests/features/ticketsflow.feature',
     // ],
@@ -28,6 +30,7 @@ exports.config = {
             'appium:deviceName': 'Pixel 3a XL',
             'appium:automationName': 'UIAutomator2',
             'appium:appPackage': 'com.cosm.cosmvenueapp',
+            'appium:noReset': false,
             'appium:appActivity': 'com.cosm.cosmvenueapp.MainActivity',
             'appium:app': '/Users/monikayadav/Desktop/Cosm-Automation/bdd-appium-automation/apps/android/app-release.apk',
             'appium:udid': '9ARAX0LZ6Z',
@@ -84,10 +87,12 @@ exports.config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         requireModule: [],
-        require: ['./tests/step-definitions/login.step.js'],
+        // require: ['./tests/step-definitions/login.step.js'],
         // require: ['./tests/step-definitions/ticketsflow.step.js'],
-        // require: ['./tests/step-definitions/signup.step.js'],
-
+        require: ['./tests/step-definitions/signup.step.js'],
+        // require: [
+        //     './tests/step-definitions/login.step.js', './tests/step-definitions/signup.step.js'
+        // ],
         // require: [
         //     './tests/step-definitions/signup.step.js', './tests/step-definitions/login.step.js', './tests/step-definitions/ticketsflow.step.js',
         // ],
@@ -117,12 +122,12 @@ exports.config = {
     beforeStep: function (step, scenario, context) {
         driver.pause(1000);
     },
-    beforeScenario: function (world, context) {
-        driver.launchApp();
-    },
-    afterScenario: function (world, result, context) { // browser.closeApp()
-        driver.closeApp();
-    },
+    // beforeScenario: function (world, context) {
+    //     driver.launchApp();
+    // },
+    // afterScenario: function (world, result, context) { // browser.closeApp()
+    //     driver.closeApp();
+    // },
     onComplete: function () {
         const reportError = new Error('Could not generate Allure report')
         const generation = allure(['generate', 'allure-results', '--clean'])

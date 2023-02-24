@@ -6,11 +6,27 @@ const homeScreen = require('../screenobjects/home.screen');
 const loginScreen = require('../screenobjects/login.screen');
 const ProfileScreen = require('../screenobjects/Profile.screen');
 const tabNav = require('../screenobjects/tabNav');
+import EnvSelectionBottomSheetScreen from '../screenobjects/EnvSelectionBottomSheet.screen';
+
 
 Given(/^signup - I am on the welcome screen$/, async () => {
-    await browser.pause(7000);
+    // await browser.pause(7000);
+    // await homeScreen.clickExploreButton();
+    // await tabNav.clickProfileIcon();
+
+
+    await browser.pause(5000);
+    await homeScreen.clickEnvSelectionButton();
+    await EnvSelectionBottomSheetScreen.selectQaEnv();
+    await EnvSelectionBottomSheetScreen.clickRestartAppButton();
+    await browser.pause(10000);
     await homeScreen.clickExploreButton();
     await tabNav.clickProfileIcon();
+});
+
+Given(/^signup - user is on login page$/, async () => {
+    await loginScreen.clickBackArrowHeaderNav();
+    await loginScreen.clickSignInButtonAppearedAfterBackButtonClick();
 });
 
 When(/^signup - user clicks on sign up button$/, async () => {

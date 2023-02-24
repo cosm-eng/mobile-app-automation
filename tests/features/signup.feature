@@ -15,7 +15,8 @@ Feature: Sign up scenarios
 
 
   Scenario Outline: Error message should be shown for invalid password
-    Given signup - I am on the welcome screen
+    # Given signup - I am on the welcome screen
+    Given signup - user is on login page
     When signup - user clicks on sign up button
     And signup - user enters the '<firstname>' , '<lastname>', '<email>' and '<password>'
     And signup - click on sign in button
