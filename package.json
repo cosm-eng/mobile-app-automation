@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio": "wdio run ./config/wdio.android.local.conf.js"
   },
   "keywords": [
     "WebDriverIO",
