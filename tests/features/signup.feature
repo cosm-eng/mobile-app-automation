@@ -3,7 +3,7 @@ Feature: Sign up scenarios
   # Given signup - I am on the welcome screen
 
   Scenario Outline: Error message should be shown for existing email
-    Given signup - I am on the welcome screen
+    Given I am on the welcome screen
     When signup - user clicks on sign up button
     And signup - user enters the '<firstname>' , '<lastname>', '<email>' and '<password>'
     And signup - click on sign in button

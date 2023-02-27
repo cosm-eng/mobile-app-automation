@@ -7,7 +7,7 @@ import {expect as expectChai} from 'chai'
 import EnvSelectionBottomSheetScreen from '../screenobjects/EnvSelectionBottomSheet.screen';
 
 
-Given(/^login- I am on the welcome screen$/, async () => {
+Given(/^I am on the welcome screen$/, async () => {
     await browser.pause(5000);
     await homeScreen.clickEnvSelectionButton();
     await EnvSelectionBottomSheetScreen.selectQaEnv();

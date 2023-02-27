@@ -4,7 +4,7 @@ Feature: login test scenarios
  
 
   Scenario Outline: Sign in button is disabled with invalid email
-    Given login- I am on the welcome screen
+    Given I am on the welcome screen
     When login- user enters the '<email>' and '<password>'
     Then login- sign in should be disabled
 
