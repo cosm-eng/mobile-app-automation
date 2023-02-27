@@ -7,9 +7,9 @@ exports.config = {
     // specs: [
     //     './tests/features/login.feature', './tests/features/signup.feature'
     // ],
-    specs: ['./tests/features/login.feature'],
+    // specs: ['./tests/features/login.feature'],
     // specs: ['./tests/features/ticketsflow.feature'],
-    // specs: ['./tests/features/signup.feature'],
+    specs: ['./tests/features/signup.feature'],
     // specs: [
     //     './tests/features/signup.feature', './tests/features/login.feature', './tests/features/ticketsflow.feature',
     // ],
@@ -89,10 +89,12 @@ exports.config = {
         requireModule: [],
         // require: ['./tests/step-definitions/login.step.js'],
         // require: ['./tests/step-definitions/ticketsflow.step.js'],
-        // require: ['./tests/step-definitions/signup.step.js'],
         require: [
-            './tests/step-definitions/login.step.js', './tests/step-definitions/common.step.js'
+            './tests/step-definitions/signup.step.js', './tests/step-definitions/common.step.js'
         ],
+        // require: [
+        //     './tests/step-definitions/login.step.js', './tests/step-definitions/common.step.js'
+        // ],
         // require: [
         //     './tests/step-definitions/login.step.js', './tests/step-definitions/signup.step.js'
         // ],

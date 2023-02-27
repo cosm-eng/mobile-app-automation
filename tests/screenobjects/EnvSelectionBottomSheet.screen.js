@@ -36,6 +36,17 @@ class EnvSelectionBottomSheetScreen extends screen {
         await(await this.getRestartAppButton()).click();
     }
 
+    async selectEnv(env) {
+
+        if (env == 'qa') {
+            await(await this.selectQaEnv());
+        } else {
+            await(await this.selectStagingEnv());
+
+        }
+
+    }
+
 }
 
 module.exports = new EnvSelectionBottomSheetScreen();
