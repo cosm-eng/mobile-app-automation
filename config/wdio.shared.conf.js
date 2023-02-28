@@ -7,7 +7,7 @@ exports.config = {
     // specs: [
     //     './tests/features/login.feature', './tests/features/signup.feature'
     // ],
-    // specs: ['./tests/features/login.feature'],
+    specs: ['./tests/features/login.feature'],
     // specs: ['./tests/features/ticketsflow.feature'],
     // specs: ['./tests/features/signup.feature'],
     // specs: [

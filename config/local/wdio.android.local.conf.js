@@ -1,11 +1,11 @@
 // export {};
 const {join} = require('path');
-const {config} = require('./wdio.shared.conf');
+const {config} = require('../wdio.shared.conf');
 
 config.port = 4723;
 // path: '/wd/hubsession',
 
-config.specs = ['../tests/features/login.feature'];
+// config.specs = ['../tests/features/login.feature'];
 config.capabilities = [{
         platformName: 'Android',
         'appium:deviceName': 'Pixel 3a XL',

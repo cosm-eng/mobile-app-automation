@@ -1,10 +1,10 @@
+import {expect as expectChai} from 'chai';
+import EnvSelectionBottomSheetScreen from '../screenobjects/EnvSelectionBottomSheet.screen';
 const {Given, When, Then} = require("@wdio/cucumber-framework");
 const homeScreen = require("../screenobjects/home.screen");
 const loginScreen = require("../screenobjects/login.screen");
 const ProfileScreen = require("../screenobjects/Profile.screen");
 const tabNav = require("../screenobjects/tabNav");
-import {expect as expectChai} from 'chai'
-import EnvSelectionBottomSheetScreen from '../screenobjects/EnvSelectionBottomSheet.screen';
 
 
 // Given(/^login- I am on the welcome screen$/, async () => {
