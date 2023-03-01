@@ -1,10 +1,17 @@
 const screen = require('./base.screen');
 const SELECTORS = {
+    ANDROID: {
+        QA_ENV: '(//android.view.ViewGroup[@content-desc="rounded-radio-container-touchable"])[2]',
+        STAGING_ENV: '(//android.view.ViewGroup[@content-desc="rounded-radio-container-touchable"])[3]',
+        RESTART_APP_BUTTON: '//android.view.ViewGroup[@content-desc="bottom-sheet-payment-add-card"]/android.view.View'
+    },
+    IOS: {
 
-    QA_ENV: '(//android.view.ViewGroup[@content-desc="rounded-radio-container-touchable"])[2]',
-    STAGING_ENV: '(//android.view.ViewGroup[@content-desc="rounded-radio-container-touchable"])[3]',
-    RESTART_APP_BUTTON: '//android.view.ViewGroup[@content-desc="bottom-sheet-payment-add-card"]/android.view.View'
+        QA_ENV: '(//android.view.ViewGroup[@content-desc="rounded-radio-container-touchable"])[2]',
+        STAGING_ENV: '(//android.view.ViewGroup[@content-desc="rounded-radio-container-touchable"])[3]',
+        RESTART_APP_BUTTON: '//android.view.ViewGroup[@content-desc="bottom-sheet-payment-add-card"]/android.view.View'
 
+    }
 
 };
 
@@ -12,13 +19,13 @@ class EnvSelectionBottomSheetScreen extends screen {
 
 
     getQAenv() {
-        return $(SELECTORS.QA_ENV);
+        return $(this.getSelectorByPlatform(SELECTORS).QA_ENV);
     }
     getStagingenv() {
-        return $(SELECTORS.STAGING_ENV);
+        return $(this.getSelectorByPlatform(SELECTORS).STAGING_ENV);
     }
     getRestartAppButton() {
-        return $(SELECTORS.RESTART_APP_BUTTON);
+        return $(this.getSelectorByPlatform(SELECTORS).RESTART_APP_BUTTON);
     }
 
     async selectQaEnv() {
@@ -46,6 +53,12 @@ class EnvSelectionBottomSheetScreen extends screen {
         }
 
     }
+
+
+    getSelectorByPlatform() {
+        return driver.isAndroid ? SELECTORS.ANDROID : SELECTORS.IOS;
+    }
+
 
 }
 

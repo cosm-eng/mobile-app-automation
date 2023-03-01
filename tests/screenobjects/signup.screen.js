@@ -1,47 +1,60 @@
 const BaseScreen = require('./base.screen');
 const SELECTORS = {
+    ANDROID: {
 
-    EMAIL_FIELD: '~signup-form-input-email',
-    PASSWORD_FIELD: '~signup-form-input-password',
-    FIRSTNAME_FIELD: '~signup-form-input-firstname',
-    LASTNAME_FIELD: '~signup-form-input-lastname',
-    SIGNUP_BUTTON: '~Sign up',
-    SIGNIN_BUTTON: '~generic-button-wrapper',
-    VALIDATION_CONTAINER: '~sign-up-password-validation-container',
-    LOGIN_ERR_MSG: '~login-error-message'
+        EMAIL_FIELD: '~signup-form-input-email',
+        PASSWORD_FIELD: '~signup-form-input-password',
+        FIRSTNAME_FIELD: '~signup-form-input-firstname',
+        LASTNAME_FIELD: '~signup-form-input-lastname',
+        SIGNUP_BUTTON: '~Sign up',
+        SIGNIN_BUTTON: '~generic-button-wrapper',
+        VALIDATION_CONTAINER: '~sign-up-password-validation-container',
+        LOGIN_ERR_MSG: '~login-error-message'
+
+    },
+    IOS: {
+        EMAIL_FIELD: '~signup-form-input-email',
+        PASSWORD_FIELD: '~signup-form-input-password',
+        FIRSTNAME_FIELD: '~signup-form-input-firstname',
+        LASTNAME_FIELD: '~signup-form-input-lastname',
+        SIGNUP_BUTTON: '~Sign up',
+        SIGNIN_BUTTON: '~generic-button-wrapper',
+        VALIDATION_CONTAINER: '~sign-up-password-validation-container',
+        LOGIN_ERR_MSG: '~login-error-message'
+    }
 
 };
 class SignUpScreen extends BaseScreen {
 
     getSignUpButton() {
-        return $(SELECTORS.SIGNUP_BUTTON);
+        return $(this.getSelectorByPlatform(SELECTORS).SIGNUP_BUTTON);
     }
 
     getFirstNameField() {
-        return $(SELECTORS.FIRSTNAME_FIELD);
+        return $(this.getSelectorByPlatform(SELECTORS).FIRSTNAME_FIELD);
     }
 
     getLastNameField() {
-        return $(SELECTORS.LASTNAME_FIELD);
+        return $(this.getSelectorByPlatform(SELECTORS).LASTNAME_FIELD);
     }
 
     getEmailField() {
-        return $(SELECTORS.EMAIL_FIELD);
+        return $(this.getSelectorByPlatform(SELECTORS).EMAIL_FIELD);
     }
 
     getPasswordField() {
-        return $(SELECTORS.PASSWORD_FIELD);
+        return $(this.getSelectorByPlatform(SELECTORS).PASSWORD_FIELD);
     }
 
     getValidationContainer() {
-        return $(SELECTORS.VALIDATION_CONTAINER);
+        return $(this.getSelectorByPlatform(SELECTORS).VALIDATION_CONTAINER);
     }
     getSignInButton() {
-        return $(SELECTORS.SIGNIN_BUTTON);
+        return $(this.getSelectorByPlatform(SELECTORS).SIGNIN_BUTTON);
     }
 
     getloginErrMessage() {
-        return $(SELECTORS.LOGIN_ERR_MSG);
+        return $(this.getSelectorByPlatform(SELECTORS).LOGIN_ERR_MSG);
     }
 
     async clickSignupButton() {
@@ -91,7 +104,9 @@ class SignUpScreen extends BaseScreen {
         console.log("Sign up container is displayed " + errdisplayed)
         return errdisplayed;
     }
-
+    getSelectorByPlatform() {
+        return driver.isAndroid ? SELECTORS.ANDROID : SELECTORS.IOS;
+    }
 
 }
 

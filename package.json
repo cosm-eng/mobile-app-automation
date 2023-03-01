@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "wdio": "wdio run ./config/local/wdio.android.local.conf.js",
+    "wdio": "wdio run ./wdio.conf.js",
     "start:appium": "appium -p 4444",
     "local:android": "E2E_TESTS_ENV=LOCAL_ANDROID  npx wdio run ./entrypoint.cjs --no-autoCompileOpts.autoCompile"
   },

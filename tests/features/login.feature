@@ -1,8 +1,5 @@
 Feature: login test scenarios
 
-
- 
-
   Scenario Outline: Sign in button is disabled with invalid email
     Given I am on the welcome screen
     When login- user enters the '<email>' and '<password>'
@@ -34,11 +31,3 @@ Feature: login test scenarios
         Examples:
       | email               | password   |
       | qacosm024@gmail.com | Monika@123 |
-
-
-  #   # When I login with <username> and <password>
-  #   # Then I should see a flash message saying <message>
-
-  #   Examples:
-  #     | username | password             | message                        |
-  #     | tomsmith | SuperSecretPassword! | You logged into a secure area! |

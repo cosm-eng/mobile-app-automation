@@ -1,36 +1,46 @@
 const BaseScreen = require('./base.screen');
 const SELECTORS = {
+    ANDROID: {
 
-    EMAIL_FIELD: '//android.widget.EditText[@content-desc="login-form-input-email"]',
-    PASSWORD_FIELD: '//android.widget.EditText[@content-desc="login-form-input-password"]',
-    SIGNIN_BTN: '~generic-button-wrapper',
-    LOGIN_ERR_MSG: '~login-error-message',
-    BACK_ARROW_HEADER_NAV: '~header-navigation-back-button',
-    SIGNIN_PROFILE: '//android.view.ViewGroup[@content-desc="generic-button-wrapper"]/android.view.View'
+        EMAIL_FIELD: '//android.widget.EditText[@content-desc="login-form-input-email"]',
+        PASSWORD_FIELD: '//android.widget.EditText[@content-desc="login-form-input-password"]',
+        SIGNIN_BTN: '~generic-button-wrapper',
+        LOGIN_ERR_MSG: '~login-error-message',
+        BACK_ARROW_HEADER_NAV: '~header-navigation-back-button',
+        SIGNIN_PROFILE: '//android.view.ViewGroup[@content-desc="generic-button-wrapper"]/android.view.View'
+    },
+    IOS: {
+        EMAIL_FIELD: '//android.widget.EditText[@content-desc="login-form-input-email"]',
+        PASSWORD_FIELD: '//android.widget.EditText[@content-desc="login-form-input-password"]',
+        SIGNIN_BTN: '~generic-button-wrapper',
+        LOGIN_ERR_MSG: '~login-error-message',
+        BACK_ARROW_HEADER_NAV: '~header-navigation-back-button',
+        SIGNIN_PROFILE: '//android.view.ViewGroup[@content-desc="generic-button-wrapper"]/android.view.View'
 
+    }
 
 };
 class LoginScreen extends BaseScreen {
     getEmailField() {
-        return $(SELECTORS.EMAIL_FIELD);
+        return $(this.getSelectorByPlatform(SELECTORS).EMAIL_FIELD);
     }
 
     getPasswordField() {
-        return $(SELECTORS.PASSWORD_FIELD);
+        return $(this.getSelectorByPlatform(SELECTORS).PASSWORD_FIELD);
     }
     getSigninBtn() {
-        return $(SELECTORS.SIGNIN_BTN);
+        return $(this.getSelectorByPlatform(SELECTORS).SIGNIN_BTN);
     }
 
     getLoginErrMessage() {
-        return $(SELECTORS.LOGIN_ERR_MSG);
+        return $(this.getSelectorByPlatform(SELECTORS).LOGIN_ERR_MSG);
     }
 
     getBackArrowHeaderNavigation() {
-        return $(SELECTORS.BACK_ARROW_HEADER_NAV);
+        return $(this.getSelectorByPlatform(SELECTORS).BACK_ARROW_HEADER_NAV);
     }
     getSignInButtonAfterClickbackButton() {
-        return $(SELECTORS.SIGNIN_PROFILE);
+        return $(this.getSelectorByPlatform(SELECTORS).SIGNIN_PROFILE);
     }
 
 
@@ -75,6 +85,11 @@ class LoginScreen extends BaseScreen {
         await(await this.getSignInButtonAfterClickbackButton()).waitForDisplayed();
         await(await this.getSignInButtonAfterClickbackButton()).click();
     }
+
+    getSelectorByPlatform() {
+        return driver.isAndroid ? SELECTORS.ANDROID : SELECTORS.IOS;
+    }
+
 }
 
 module.exports = new LoginScreen();
